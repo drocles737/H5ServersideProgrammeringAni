@@ -8,11 +8,14 @@ using Microsoft.EntityFrameworkCore;
 using H5ServersideAni.Areas.ToDoList.Models;
 using H5ServersideAni.Areas.ToDoList.Code;
 using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.Authorization;
 
 namespace H5ServersideAni.Areas.ToDoList.Controllers
 {
     [Area("ToDoList")]
     [Route("ToDoList/[controller]/[action]")]
+    [Authorize("RequireAuthenticatedUser")]
+
     public class InfoesController : Controller
     {
         private readonly ToDoServerContext _context;
